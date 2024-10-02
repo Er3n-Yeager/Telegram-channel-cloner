@@ -19,4 +19,7 @@ This script allows you to forward messages from one Telegram channel to another.
    git clone https://github.com/yourusername/telegram-message-forwarder.git
    cd telegram-message-forwarder
 2. **Create virtual environment***
-  ```bash 
+   '''bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+ 
