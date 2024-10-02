@@ -1,10 +1,22 @@
-# Telegram-channel-cloner
-A fast python script that clones private/public telegram channels
+# Telegram Message Forwarder
 
+This script allows you to forward messages from one Telegram channel to another. It supports forwarding text messages, photos, videos, and documents using the Pyrogram library to interact with the Telegram API.
 
-How to use the script
-1. Star the repo
-2. fork the repo
-3. download the code and install required dependencies
-4. fill all the credentials in the code
-5. run the script using python tgCh_cloner.py
+## Features
+- Forwards text messages, photos, videos, and documents.
+- Supports both private and public channels.
+- Implements rate limiting to prevent flooding.
+
+## Requirements
+- Python 3.7 or higher
+- Pyrogram
+- TgCrypto (for better performance)
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/telegram-message-forwarder.git
+   cd telegram-message-forwarder
+2. **Create virtual environment***
+  ```bash 
