@@ -4,23 +4,23 @@ import time
 from tqdm import tqdm
 
 # Add your credentials here
-api_id = 12862156  # Replace with your actual API ID
-api_hash = 'd913a2ef10183c683144ff851481d9fd'  # Replace with your actual API Hash
-phone_number = '+919150368665'  # Your phone number linked to the Telegram account
+api_id =   # Replace with your actual API ID
+api_hash = ''  # Replace with your actual API Hash
+phone_number = ''  # Your phone number linked to the Telegram account
 
 # Source and destination channel usernames (private channels)
-source_channel = '@mr890189'  # Replace with your source private channel
-destination_channel = '-1002250470922'  # Replace with your destination private channel
+source_channel = ''  # Replace with your source private channel or public channel username with @
+destination_channel = ''  # Replace with your destination private channel or public channel username with @
 
 # Initialize the client
-app = Client("user_session", api_id, api_hash, phone_number=phone_number)
+eren = Client("user_session", api_id, api_hash, phone_number=phone_number)
 
 def forward_old_messages():
-    with app:
+    with eren:
         messages = []
 
         # Get all messages from the source channel in chronological order
-        for message in app.get_chat_history(source_channel, limit=None):
+        for message in eren.get_chat_history(source_channel, limit=None):
             messages.append(message)
 
         # Total number of messages to forward
@@ -41,13 +41,13 @@ def forward_old_messages():
                     try:
                         # Check the type of message and forward accordingly
                         if message.text:  # If it's a text message
-                            app.send_message(destination_channel, message.text, reply_to_message_id=message.id)
+                            eren.send_message(destination_channel, message.text, reply_to_message_id=message.id)
                         elif message.photo:  # If it's a photo
-                            app.send_photo(destination_channel, message.photo.file_id, caption=message.caption)
+                            eren.send_photo(destination_channel, message.photo.file_id, caption=message.caption)
                         elif message.video:  # If it's a video
-                            app.send_video(destination_channel, message.video.file_id, caption=message.caption)
+                            eren.send_video(destination_channel, message.video.file_id, caption=message.caption)
                         elif message.document:  # If it's a document
-                            app.send_document(destination_channel, message.document.file_id, caption=message.caption)
+                            eren.send_document(destination_channel, message.document.file_id, caption=message.caption)
 
                         pbar.update(1)  # Update the progress bar
                     except FloodWait as e:
@@ -62,3 +62,7 @@ def forward_old_messages():
 # Start the bot
 if __name__ == "__main__":
     forward_old_messages()
+
+
+# Author : Eren
+# Github : https://github.com/Er3n-Yeager
